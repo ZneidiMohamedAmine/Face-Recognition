@@ -32,6 +32,7 @@ print(len(encodeList))
 
 stopTheCap = cv2.VideoCapture(0)
 
+
 while True:
     sc,imgs = stopTheCap.read()
     ImsRS = cv2.resize(imgs,(0,0),None,0.25,0.25)
@@ -44,5 +45,10 @@ while True:
         match = face_recognition.compare_faces(encodeList,encode)
         Dis = face_recognition.face_distance(encodeList,encode)
         print(Dis)
+
+    cv2.imshow('imgs', imgs) 
+    if cv2.waitKey(1) & 0xFF == ord('q'): 
+        break
+
 
 
