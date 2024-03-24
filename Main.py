@@ -46,6 +46,9 @@ while True:
         Dis = face_recognition.face_distance(encodeList,encode)
         print(Dis)
 
+    x1,y1,x2,y2 = face_recognition.face_locations(imgs)
+    cv2.rectangle(imgs,(x1,y1),(x2,y2),(0,0,0),1)
+
     cv2.imshow('imgs', imgs) 
     if cv2.waitKey(1) & 0xFF == ord('q'): 
         break
